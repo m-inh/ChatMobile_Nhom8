@@ -16,12 +16,12 @@
         android:paddingRight="20dp" >
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/edt_username"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
-            android:hint="@string/hint_email"
+            android:hint="@string/hint_username"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
@@ -29,7 +29,7 @@
             android:textColorHint="@color/input_login_hint" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/edt_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -44,7 +44,7 @@
         <!-- Login Button -->
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btn_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
@@ -55,7 +55,7 @@
         <!-- Link to Login Screen -->
 
         <Button
-            android:id="@+id/btnLinkToRegisterScreen"
+            android:id="@+id/btn_register"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"

@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         // set up tabs with viewpager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
 
 }
