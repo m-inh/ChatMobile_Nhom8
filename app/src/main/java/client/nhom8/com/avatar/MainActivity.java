@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//ok
         // Set up the ViewPager with the pager adapter.
         ArrayList<Fragment> fragmentArr = new ArrayList<>();
         fragmentArr.add(new ContactFragment());
