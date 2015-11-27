@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import client.nhom8.com.avatar.R;
+import client.nhom8.com.avatar.adapter.ContactAdapter;
 
 /**
  * Created by TooNies1810 on 11/26/15.
@@ -25,5 +27,8 @@ public class ContactFragment extends Fragment {
     }
 
     private void initViews() {
+        ContactAdapter mAdapter = new ContactAdapter(getActivity());
+        ListView lvContact = (ListView) root.findViewById(R.id.lv_contact);
+        lvContact.setAdapter(mAdapter);
     }
 }

@@ -15,4 +15,6 @@
     <string name="name">Fullname</string>
     <string name="hint_repassword">Nhập lại mật khẩu</string>
     <string name="hint_username">Tên tài khoản</string>
+    <string name="name_contact">User Contact Name</string>
+    <string name="phone_number_contact">Phone number</string>
 </resources>
