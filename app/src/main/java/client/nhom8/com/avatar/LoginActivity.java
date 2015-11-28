@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by TooNies1810 on 11/26/15.
@@ -40,7 +41,14 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkLogin(edtUsername.getText().toString(), edtPass.getText().toString());
+                String username = edtUsername.getText().toString();
+                String pass = edtPass.getText().toString();
+
+                if (!username.isEmpty() && !pass.isEmpty()){
+                    checkLogin(edtUsername.getText().toString(), edtPass.getText().toString());
+                } else {
+                    Toast.makeText(LoginActivity.this, "Please fill your information", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

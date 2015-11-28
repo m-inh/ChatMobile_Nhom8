@@ -23,4 +23,5 @@
     <string name="my_sms">My sms</string>
     <string name="friend_name">Friend name</string>
     <string name="recent_sms">Recent sms</string>
+    <string name="activity_login">Login</string>
 </resources>
