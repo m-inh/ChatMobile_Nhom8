@@ -39,17 +39,17 @@ public class ContactManager {
 
         while (!c.isAfterLast()) {
             String id = c.getString(indexId);
-            Log.i(TAG, "Id: " + id);
+//            Log.i(TAG, "Id: " + id);
             String name = c.getString(indexName);
-            Log.i(TAG, "name: " + name);
+//            Log.i(TAG, "name: " + name);
             int hasPhoneNumb = Integer.parseInt(c.getString(indexHasPhoneNumb));
-            Log.i(TAG, "Has phone numb: " + hasPhoneNumb);
+//            Log.i(TAG, "Has phone numb: " + hasPhoneNumb);
 
             String phoneNumbArr[] = new String[0];
 
             if (hasPhoneNumb > 0) {
                 String WHERE_CLAUSE = ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + id;
-                Log.i(TAG, WHERE_CLAUSE);
+//                Log.i(TAG, WHERE_CLAUSE);
                 Cursor cPhone = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, WHERE_CLAUSE, null, null);
                 if (cPhone == null) {
                     return itemArr;
@@ -62,7 +62,7 @@ public class ContactManager {
                 while (!cPhone.isAfterLast()) {
                     String phoneNumb = cPhone.getString(indexPhone);
                     phoneTempArr.add(phoneNumb);
-                    Log.i(TAG, "phone number: " + phoneNumb);
+//                    Log.i(TAG, "phone number: " + phoneNumb);
                     count++;
                     cPhone.moveToNext();
                 }

@@ -9,4 +9,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Message_fragment"
         android:id="@+id/tv_message" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/lv_message" />
 </LinearLayout>
