@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import client.nhom8.com.avatar.R;
 import client.nhom8.com.avatar.models.ItemMessage;
-import client.nhom8.com.avatar.models.ItemRecentMessage;
 
 /**
  * Created by TooNies1810 on 11/28/15.
@@ -36,6 +35,11 @@ public class MessageAdapter extends BaseAdapter{
         itemArr.add(new ItemMessage("Tao cung the", 1));
         itemArr.add(new ItemMessage("Sai nhieu lam, chac duoc 9 la cung :(((", 1));
         itemArr.add(new ItemMessage("%^$&*@*$", 2));
+    }
+
+    public void addItem(ItemMessage item){
+        itemArr.add(item);
+//        notifyDataSetChanged();
     }
 
     @Override
