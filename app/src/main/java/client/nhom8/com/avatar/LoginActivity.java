@@ -139,6 +139,13 @@ public class LoginActivity extends Activity {
                                     userDB.addUser(infor.getUserID(), username, pass);
 
                                     Message msg = new Message();
+                                    msg.arg1 = 1;
+                                    msg.setTarget(mHandler);
+                                    msg.sendToTarget();
+                                } else {
+                                    // Gui thong bao sai tai khoan
+                                    Message msg = new Message();
+                                    msg.arg1 = 0;
                                     msg.setTarget(mHandler);
                                     msg.sendToTarget();
                                 }
@@ -161,13 +168,19 @@ public class LoginActivity extends Activity {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            // hide progresss dialog
             hideDialog();
-            session.setLogin(true);
-            Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
 
-            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG);
-            startActivity(mIntent);
-            finish();
+            if (msg.arg1 == 1){
+                session.setLogin(true);
+                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
+
+                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG);
+                startActivity(mIntent);
+                finish();
+            } else if (msg.arg1 == 0){
+                Toast.makeText(LoginActivity.this, "Tài khoản không đúng, xin kiểm tra lại", Toast.LENGTH_LONG).show();
+            }
         }
     };
 

@@ -1,26 +1,43 @@
 package client.nhom8.com.avatar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import client.nhom8.com.avatar.adapter.MyViewpagerAdapter;
 import client.nhom8.com.avatar.database.UserData;
+import client.nhom8.com.avatar.define.Define;
 import client.nhom8.com.avatar.fragment.ContactFragment;
 import client.nhom8.com.avatar.fragment.MessageFragment;
 import client.nhom8.com.avatar.fragment.SettingFragment;
 import client.nhom8.com.avatar.fragment.SocialFragment;
+import client.nhom8.com.avatar.managers.ConnectionManager;
+import client.nhom8.com.avatar.managers.UserManager;
 import client.nhom8.com.avatar.session.LoginSession;
+import models.LoginInfo;
+import models.UserLogin;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private ViewPager mViewPager;
     private MyViewpagerAdapter mPagerAdapter;
+    private ProgressDialog pDialog;
 
     private LoginSession session;
 
@@ -39,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         if (!session.isLogin()){
             logOut();
         }
+
+        //init Dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Login");
+        pDialog.setCancelable(false);
 
         // Set up the ViewPager with the pager adapter.
         ArrayList<Fragment> fragmentArr = new ArrayList<>();
@@ -59,6 +81,115 @@ public class MainActivity extends AppCompatActivity {
         // set up tabs with viewpager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        //kiem tra thong tin dang nhap cua phien truoc
+        //neu thong tin sai se quay lai man hinh dang nhap
+        HashMap<String, String> user = userDb.getUser();
+        checkLogin(user.get("username"), user.get("password"));
+    }
+
+    private ObjectOutputStream dout;
+    private ObjectInputStream din;
+
+    //request username va pass len server de su li
+    //Neu user dung thi luu user vao sqlite, luu session, chuyen den MainActivity
+    private void checkLogin(final String username, final String pass) {
+        final UserLogin userLogin =
+                new UserLogin(username, pass, 1);
+        //Hien dialog doi
+        showDialog();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Socket socketClient;
+                try {
+                    socketClient = new Socket(Define.IP, Define.PORT);
+
+                    if (socketClient.isConnected()) {
+                        Log.i(TAG, "Server is accept!");
+//                        hideDialog();
+                    }
+                    dout = new ObjectOutputStream(socketClient.getOutputStream());
+                    din = new ObjectInputStream(socketClient.getInputStream());
+                    ConnectionManager.getIntance().setSoc(socketClient);
+                    ConnectionManager.getIntance().setObjectInputStream(din);
+                    ConnectionManager.getIntance().setObjectOutputStream(dout);
+
+                    dout.writeObject(userLogin);
+                    dout.flush();
+
+                    //Lang nghe thong tin gui ve
+                    LoginInfo infor = null;
+                    while (infor == null) {
+                        try {
+                            infor = (LoginInfo) din.readObject();
+                            if (infor != null) {
+                                if (infor.isIsLogin()) {
+                                    Log.i(TAG, "LoginInfo success!");
+                                    UserManager.getIntance().setUserID(infor.getUserID());
+//                                    ChatFrm chatFrm = new ChatFrm();
+//                                    this.setVisible(false);
+
+                                    // Add new user to SQLite db
+//                                    userDb.addUser(infor.getUserID(), username, pass);
+
+                                    Message msg = new Message();
+                                    msg.arg1 = 1;
+                                    msg.setTarget(mHandler);
+                                    msg.sendToTarget();
+                                } else {
+                                    // Gui thong bao sai tai khoan
+                                    Message msg = new Message();
+                                    msg.arg1 = 0;
+                                    msg.setTarget(mHandler);
+                                    msg.sendToTarget();
+                                }
+                            } else {
+                                Log.i(TAG, "LoginInfo is null");
+                            }
+                        } catch (IOException | ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+//                    Toast.makeText(LoginActivity.this, "Connection is failed!", Toast.LENGTH_LONG).show();
+                }
+            }
+        }).start();
+    }
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            // hide progresss dialog
+            hideDialog();
+
+            if (msg.arg1 == 1){
+                session.setLogin(true);
+                //call service to listener
+                Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
+                startService(mIntent);
+
+            } else if (msg.arg1 == 0){
+                Toast.makeText(MainActivity.this, "Tài khoản không đúng, xin kiểm tra lại", Toast.LENGTH_LONG).show();
+                logOut();
+            }
+        }
+    };
+
+    private void showDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
     }
 
     public void logOut(){
@@ -73,5 +204,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(mIntent);
         finish();
     }
+
 
 }
