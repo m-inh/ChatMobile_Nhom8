@@ -17,6 +17,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import client.nhom8.com.avatar.database.UserData;
 import client.nhom8.com.avatar.define.Define;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.managers.UserManager;
@@ -34,25 +35,29 @@ public class LoginActivity extends Activity {
 
     private LoginSession session;
 
+    private UserData userDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //init Dialog
-        pDialog = new ProgressDialog(this);
-        pDialog.setTitle("Login");
-        pDialog.setCancelable(false);
 
         //init session
         session = new LoginSession(this);
         // Neu da dang nhap thi vao main activity luon
         if (session.isLogin()){
             Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
-
             startActivity(mIntent);
             finish();
         }
+
+        //init Dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Login");
+        pDialog.setCancelable(false);
+
+        //init database
+        userDB = new UserData(this);
 
         initViews();
     }
@@ -92,7 +97,7 @@ public class LoginActivity extends Activity {
 
     //request username va pass len server de su li
     //Neu user dung thi luu user vao sqlite, luu session, chuyen den MainActivity
-    private void checkLogin(String username, String pass) {
+    private void checkLogin(final String username, final String pass) {
         final UserLogin userLogin =
                 new UserLogin(username, pass, 1);
         //Hien dialog doi
@@ -129,6 +134,10 @@ public class LoginActivity extends Activity {
                                     UserManager.getIntance().setUserID(infor.getUserID());
 //                                    ChatFrm chatFrm = new ChatFrm();
 //                                    this.setVisible(false);
+
+                                    // Add new user to SQLite db
+                                    userDB.addUser(infor.getUserID(), username, pass);
+
                                     Message msg = new Message();
                                     msg.setTarget(mHandler);
                                     msg.sendToTarget();

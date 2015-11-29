@@ -11,6 +11,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import client.nhom8.com.avatar.adapter.MyViewpagerAdapter;
+import client.nhom8.com.avatar.database.UserData;
 import client.nhom8.com.avatar.fragment.ContactFragment;
 import client.nhom8.com.avatar.fragment.MessageFragment;
 import client.nhom8.com.avatar.fragment.SettingFragment;
@@ -23,10 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
     private LoginSession session;
 
+    private UserData userDb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // init user database
+        userDb = new UserData(this);
 
         // init session
         session = new LoginSession(this);
@@ -56,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logOut(){
+        // xoa du lieu nguoi dung khoi sqlite db
+        userDb.deleteUser();
+
         // set session la false, chuyen den Login activity
         session.setLogin(false);
 

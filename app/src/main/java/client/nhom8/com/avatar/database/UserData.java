@@ -13,12 +13,13 @@ import java.util.HashMap;
  * Created by TooNies1810 on 11/29/15.
  */
 public class UserData extends SQLiteOpenHelper {
+    private static final String TAG = "UserData";
+
     private static final String DATABASE_NAME = "USER_DATA.db";
     private static final String TABLE_NAME = "USER";
     private static final String UID = "uid";
     private static final String USERNAME= "username";
     private static final String PASSWORD = "password";
-    private static final String TAG = "UserData";
 
     public UserData(Context mContext){
         super(mContext, DATABASE_NAME, null, 1);

@@ -12,7 +12,7 @@
     <string name="btn_link_to_login">Đã có tài khoản? <u>Đăng nhập ngay</u></string>
     <string name="welcome">Welcome</string>
     <string name="btn_logout">Đăng xuất</string>
-    <string name="name">Fullname</string>
+    <string name="name">Họ và tên</string>
     <string name="hint_repassword">Nhập lại mật khẩu</string>
     <string name="hint_username">Tên tài khoản</string>
     <string name="name_contact">User Contact Name</string>
@@ -24,4 +24,5 @@
     <string name="friend_name">Friend name</string>
     <string name="recent_sms">Recent sms</string>
     <string name="activity_login">Login</string>
+    <string name="uid">uid</string>
 </resources>

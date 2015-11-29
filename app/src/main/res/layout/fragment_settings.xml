@@ -11,6 +11,33 @@
         android:text="Settings_fragment"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/tv_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/uid"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_nameUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/name"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_passUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/hint_password"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20dp" />
+
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
