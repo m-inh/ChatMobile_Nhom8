@@ -1,12 +1,12 @@
-package client.nhom8.com.avatar.models;
+package models;
 
 import java.io.Serializable;
-
 /**
  *
  * @author KN_SV023
  */
-public class BaseMessage implements Serializable{
+public class BaseMessage implements Serializable {
+    private static final long serialVersionUID = 1L;
     public String uid;
     public String uidSender;
     public String mes;
@@ -17,10 +17,10 @@ public class BaseMessage implements Serializable{
         this.mes = mes;
     }
 
-    
+
 
     public BaseMessage() {
     }
-    
-    
+
+
 }

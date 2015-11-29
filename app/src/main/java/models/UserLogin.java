@@ -1,8 +1,9 @@
-package client.nhom8.com.avatar.models;
+package models;
 
 import java.io.Serializable;
 
-public class UserLogin implements Serializable{
+public class UserLogin implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String userName;
     private String passWord;
     private int port;
@@ -38,5 +39,5 @@ public class UserLogin implements Serializable{
     public void setPort(int port) {
         this.port = port;
     }
-        
+
 }
