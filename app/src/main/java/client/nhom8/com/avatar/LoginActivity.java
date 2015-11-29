@@ -20,6 +20,7 @@ import java.net.Socket;
 import client.nhom8.com.avatar.define.Define;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.managers.UserManager;
+import client.nhom8.com.avatar.session.LoginSession;
 import models.LoginInfo;
 import models.UserLogin;
 
@@ -31,6 +32,8 @@ public class LoginActivity extends Activity {
     private static final String TAG = "LoginActivity";
     private ProgressDialog pDialog;
 
+    private LoginSession session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,16 @@ public class LoginActivity extends Activity {
         pDialog = new ProgressDialog(this);
         pDialog.setTitle("Login");
         pDialog.setCancelable(false);
+
+        //init session
+        session = new LoginSession(this);
+        // Neu da dang nhap thi vao main activity luon
+        if (session.isLogin()){
+            Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
+
+            startActivity(mIntent);
+            finish();
+        }
 
         initViews();
     }
@@ -68,7 +81,7 @@ public class LoginActivity extends Activity {
                 if (!username.isEmpty() && !pass.isEmpty()) {
                     checkLogin(edtUsername.getText().toString(), edtPass.getText().toString());
                 } else {
-                    Toast.makeText(LoginActivity.this, "Please fill your information", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Vui lòng điền đầy đủ thông tin của bạn", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -107,19 +120,18 @@ public class LoginActivity extends Activity {
 
                     //Lang nghe thong tin gui ve
                     LoginInfo infor = null;
-                    while (true) {
+                    while (infor == null) {
                         try {
                             infor = (LoginInfo) din.readObject();
                             if (infor != null) {
                                 if (infor.isIsLogin()) {
-                                    Log.i(TAG, "LoginInfo is ok");
+                                    Log.i(TAG, "LoginInfo success!");
                                     UserManager.getIntance().setUserID(infor.getUserID());
 //                                    ChatFrm chatFrm = new ChatFrm();
 //                                    this.setVisible(false);
                                     Message msg = new Message();
                                     msg.setTarget(mHandler);
                                     msg.sendToTarget();
-                                    break;
                                 }
                             } else {
                                 Log.i(TAG, "LoginInfo is null");
@@ -141,8 +153,10 @@ public class LoginActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             hideDialog();
+            session.setLogin(true);
             Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
 
+            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG);
             startActivity(mIntent);
             finish();
         }

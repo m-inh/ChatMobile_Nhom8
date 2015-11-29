@@ -1,5 +1,6 @@
 package client.nhom8.com.avatar;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -14,17 +15,25 @@ import client.nhom8.com.avatar.fragment.ContactFragment;
 import client.nhom8.com.avatar.fragment.MessageFragment;
 import client.nhom8.com.avatar.fragment.SettingFragment;
 import client.nhom8.com.avatar.fragment.SocialFragment;
+import client.nhom8.com.avatar.session.LoginSession;
 
 public class MainActivity extends AppCompatActivity {
-
     private ViewPager mViewPager;
     private MyViewpagerAdapter mPagerAdapter;
+
+    private LoginSession session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//ok
+
+        // init session
+        session = new LoginSession(this);
+        if (!session.isLogin()){
+            logOut();
+        }
+
         // Set up the ViewPager with the pager adapter.
         ArrayList<Fragment> fragmentArr = new ArrayList<>();
         fragmentArr.add(new ContactFragment());
@@ -44,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
         // set up tabs with viewpager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    public void logOut(){
+        // set session la false, chuyen den Login activity
+        session.setLogin(false);
+
+        // chuyen den Login activiy
+        Intent mIntent = new Intent(this,LoginActivity.class);
+        startActivity(mIntent);
+        finish();
     }
 
 }
