@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -82,6 +83,8 @@ public class MessageActivity extends Activity {
     }
 
     private void initViews() {
+        TextView tvFriendName = (TextView) findViewById(R.id.tv_friendname);
+        tvFriendName.setText("" + uidFriend);
         edtMessage = (EditText) findViewById(R.id.edt_message);
         btnSend = (Button) findViewById(R.id.btn_send);
         lvMessage = (ListView) findViewById(R.id.lv_message);

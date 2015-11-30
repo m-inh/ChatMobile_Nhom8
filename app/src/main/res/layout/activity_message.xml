@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Friend name"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_orange_dark"
+        android:id="@+id/tv_friendname" />
+
     <ListView
         android:id="@+id/lv_message"
         android:layout_width="match_parent"
