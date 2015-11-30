@@ -2,23 +2,33 @@ package client.nhom8.com.avatar;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import client.nhom8.com.avatar.adapter.MessageAdapter;
+import client.nhom8.com.avatar.adapter.MessageRecentAdapter;
+import client.nhom8.com.avatar.managers.AppManager;
 import client.nhom8.com.avatar.managers.ConnectionManager;
+import client.nhom8.com.avatar.models.ItemMessage;
+import client.nhom8.com.avatar.models.ItemRecentMessage;
 import models.BaseMessage;
 
 /**
  * Created by TooNies1810 on 11/29/15.
  */
-public class ListenMessageService extends Service implements Runnable{
+public class ListenMessageService extends Service implements Runnable {
 
     private static final String TAG = "ListenMessageService";
+    public static final String UPDATE_MESSAGE_RECENT_ACTION = "update_message_recent_action";
+    public static final String UPDATE_MESSAGE_ACTION = "update_message_action";
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -68,15 +78,30 @@ public class ListenMessageService extends Service implements Runnable{
 
     @Override
     public void run() {
-        while(true){
+        while (true) {
             try {
                 objectOutputStream.flush();
-                BaseMessage msg = null;
-                msg = (BaseMessage) objectInputStream.readObject();
-                if(msg != null){
-                    Log.i(TAG, msg.uidSender + " : " + msg.mes);
-                }
+                BaseMessage baseMsg = (BaseMessage) objectInputStream.readObject();
+                if (baseMsg != null) {
+                    Log.i(TAG, baseMsg.uidSender + " : " + baseMsg.mes);
 
+                    Intent mIntent = new Intent();
+                    mIntent.putExtra("uid", baseMsg.uid);
+                    mIntent.putExtra("uidSender", baseMsg.uidSender);
+                    mIntent.putExtra("mes", baseMsg.mes);
+                    mIntent.setAction(UPDATE_MESSAGE_RECENT_ACTION);
+
+                    sendBroadcast(mIntent);
+
+                    Intent mIntent2 = new Intent();
+                    mIntent2.putExtra("uid", baseMsg.uid);
+                    mIntent2.putExtra("uidSender", baseMsg.uidSender);
+                    mIntent2.putExtra("mes", baseMsg.mes);
+                    mIntent2.setAction(UPDATE_MESSAGE_ACTION);
+
+
+                    sendBroadcast(mIntent2);
+                }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }

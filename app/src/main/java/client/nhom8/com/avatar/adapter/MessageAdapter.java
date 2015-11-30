@@ -31,10 +31,10 @@ public class MessageAdapter extends BaseAdapter{
         itemArr = new ArrayList<>();
 
         // Tao du lieu gia
-        itemArr.add(new ItemMessage("Hom qua lam bai chan vai", 2));
-        itemArr.add(new ItemMessage("Tao cung the", 1));
-        itemArr.add(new ItemMessage("Sai nhieu lam, chac duoc 9 la cung :(((", 1));
-        itemArr.add(new ItemMessage("%^$&*@*$", 2));
+//        itemArr.add(new ItemMessage("Hom qua lam bai chan vai", 2));
+//        itemArr.add(new ItemMessage("Tao cung the", 1));
+//        itemArr.add(new ItemMessage("Sai nhieu lam, chac duoc 9 la cung :(((", 1));
+//        itemArr.add(new ItemMessage("%^$&*@*$", 2));
     }
 
     public void addItem(ItemMessage item){
