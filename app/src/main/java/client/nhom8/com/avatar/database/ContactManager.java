@@ -68,11 +68,15 @@ public class ContactManager {
                 }
                 phoneNumbArr = new String[phoneTempArr.size()];
                 phoneTempArr.toArray(phoneNumbArr);
+
+                cPhone.close();
             }
 
             itemArr.add(new ItemContact(name, phoneNumbArr));
             c.moveToNext();
         }
+
+        c.close();
 
         return itemArr;
     }

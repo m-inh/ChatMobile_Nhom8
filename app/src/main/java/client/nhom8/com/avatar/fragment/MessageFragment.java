@@ -11,11 +11,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.Vector;
+
 import client.nhom8.com.avatar.MessageActivity;
 import client.nhom8.com.avatar.R;
 import client.nhom8.com.avatar.adapter.MessageRecentAdapter;
 import client.nhom8.com.avatar.managers.AppManager;
 import client.nhom8.com.avatar.models.ItemRecentMessage;
+import models.Friend;
 
 /**
  * Created by TooNies1810 on 11/26/15.
@@ -30,10 +33,19 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemClick
     private String uid;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(TAG, "on create");
+
+        mContext = getContext();
+        mAdapter = new MessageRecentAdapter(mContext);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_message, container, false);
-        mContext = getContext();
 
+        Log.i(TAG, "on create view");
         Bundle bundleFromMain = getArguments();
         this.uid = bundleFromMain.getString("uid");
 
@@ -43,7 +55,6 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemClick
 
     private void initViews() {
         lvMessage = (ListView) root.findViewById(R.id.lv_message);
-        mAdapter = new MessageRecentAdapter(mContext);
 
         lvMessage.setOnItemClickListener(this);
         lvMessage.setAdapter(mAdapter);
@@ -72,7 +83,12 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemClick
 
         String nameUidSender = "No name";
 
-        mAdapter.addItem(new ItemRecentMessage(uidSender,nameUidSender,mes));
+        mAdapter.addItem(new ItemRecentMessage(uidSender, nameUidSender, mes));
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void updateListFriend(Vector<Friend> listFriend) {
+        mAdapter.updateListFriend(listFriend);
         mAdapter.notifyDataSetChanged();
     }
 }

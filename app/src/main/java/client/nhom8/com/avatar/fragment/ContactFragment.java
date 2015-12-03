@@ -18,6 +18,17 @@ public class ContactFragment extends Fragment {
     private View root;
     private Context mContext;
 
+    private ListView lvContact;
+    private ContactAdapter mAdapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mContext = getContext();
+        mAdapter = new ContactAdapter(getActivity());
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_contact, container, false);
@@ -27,8 +38,7 @@ public class ContactFragment extends Fragment {
     }
 
     private void initViews() {
-        ContactAdapter mAdapter = new ContactAdapter(getActivity());
-        ListView lvContact = (ListView) root.findViewById(R.id.lv_contact);
+        lvContact = (ListView) root.findViewById(R.id.lv_contact);
         lvContact.setAdapter(mAdapter);
     }
 }

@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                 //call service to listener
                 Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
                 startService(mIntent);
-
+                messageFragment.updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
             } else if (msg.arg1 == 0) {
                 Toast.makeText(MainActivity.this, "Tài khoản không đúng, xin kiểm tra lại", Toast.LENGTH_LONG).show();
                 logOut();

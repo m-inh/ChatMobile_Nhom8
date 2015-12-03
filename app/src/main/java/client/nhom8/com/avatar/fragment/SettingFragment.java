@@ -24,12 +24,18 @@ public class SettingFragment extends Fragment {
     private UserData userDb;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_settings, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         mContext = getContext();
 
         // init user data
         userDb = new UserData(mContext);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        root = inflater.inflate(R.layout.fragment_settings, container, false);
 
         initViews();
         return root;

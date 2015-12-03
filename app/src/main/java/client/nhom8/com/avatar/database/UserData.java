@@ -72,6 +72,9 @@ public class UserData extends SQLiteOpenHelper {
         user.put("username", c.getString(indexName));
         user.put("password", c.getString(indexPass));
 
+        c.close();
+        db.close();
+
         return user;
     }
 
