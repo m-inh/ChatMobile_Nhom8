@@ -2,24 +2,16 @@ package client.nhom8.com.avatar;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.util.Log;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import client.nhom8.com.avatar.adapter.MessageAdapter;
-import client.nhom8.com.avatar.adapter.MessageRecentAdapter;
-import client.nhom8.com.avatar.managers.AppManager;
 import client.nhom8.com.avatar.managers.ConnectionManager;
-import client.nhom8.com.avatar.models.ItemMessage;
-import client.nhom8.com.avatar.models.ItemRecentMessage;
-import models.BaseMessage;
+import modelsnet.BaseMessage;
 
 /**
  * Created by TooNies1810 on 11/29/15.

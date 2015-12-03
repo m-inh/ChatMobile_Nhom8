@@ -22,8 +22,9 @@ import client.nhom8.com.avatar.define.Define;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.managers.UserManager;
 import client.nhom8.com.avatar.session.LoginSession;
-import models.LoginInfo;
-import models.UserLogin;
+import models.UserInfo;
+import modelsnet.LoginInfo;
+import modelsnet.UserLogin;
 
 /**
  * Created by TooNies1810 on 11/26/15.
@@ -131,12 +132,13 @@ public class LoginActivity extends Activity {
                             if (infor != null) {
                                 if (infor.isIsLogin()) {
                                     Log.i(TAG, "LoginInfo success!");
-                                    UserManager.getIntance().setUserID(infor.getUserID());
+                                    UserInfo userInfo = infor.getUserInfo();
+                                    UserManager.getIntance().setUserInfo(userInfo);
 //                                    ChatFrm chatFrm = new ChatFrm();
 //                                    this.setVisible(false);
 
                                     // Add new user to SQLite db
-                                    userDB.addUser(infor.getUserID(), username, pass);
+                                    userDB.addUser(userInfo.getUserID(), username, pass);
 
                                     Message msg = new Message();
                                     msg.arg1 = 1;

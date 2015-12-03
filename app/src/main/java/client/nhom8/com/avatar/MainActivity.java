@@ -23,8 +23,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import client.nhom8.com.avatar.adapter.MessageAdapter;
-import client.nhom8.com.avatar.adapter.MessageRecentAdapter;
 import client.nhom8.com.avatar.adapter.MyViewpagerAdapter;
 import client.nhom8.com.avatar.database.UserData;
 import client.nhom8.com.avatar.define.Define;
@@ -32,13 +30,12 @@ import client.nhom8.com.avatar.fragment.ContactFragment;
 import client.nhom8.com.avatar.fragment.MessageFragment;
 import client.nhom8.com.avatar.fragment.SettingFragment;
 import client.nhom8.com.avatar.fragment.SocialFragment;
-import client.nhom8.com.avatar.managers.AppManager;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.managers.UserManager;
-import client.nhom8.com.avatar.models.ItemRecentMessage;
 import client.nhom8.com.avatar.session.LoginSession;
-import models.LoginInfo;
-import models.UserLogin;
+import models.UserInfo;
+import modelsnet.LoginInfo;
+import modelsnet.UserLogin;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -169,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
                             if (infor != null) {
                                 if (infor.isIsLogin()) {
                                     Log.i(TAG, "LoginInfo success!");
-                                    UserManager.getIntance().setUserID(infor.getUserID());
+                                    UserInfo userInfo = infor.getUserInfo();
+                                    UserManager.getIntance().setUserInfo(userInfo);
 //                                    ChatFrm chatFrm = new ChatFrm();
 //                                    this.setVisible(false);
 

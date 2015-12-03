@@ -1,9 +1,8 @@
-package models;
+package modelsnet;
 
 import java.io.Serializable;
 
 public class UserLogin implements Serializable {
-    private static final long serialVersionUID = 1L;
     private String userName;
     private String passWord;
     private int port;

@@ -18,10 +18,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import client.nhom8.com.avatar.adapter.MessageAdapter;
-import client.nhom8.com.avatar.managers.AppManager;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.models.ItemMessage;
-import models.BaseMessage;
+import modelsnet.BaseMessage;
 
 /**
  * Created by TooNies1810 on 11/28/15.
