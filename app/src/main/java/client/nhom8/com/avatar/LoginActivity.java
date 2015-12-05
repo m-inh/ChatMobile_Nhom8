@@ -64,6 +64,8 @@ public class LoginActivity extends Activity {
     }
 
     private void initViews() {
+        final EditText edtIp = (EditText) findViewById(R.id.edt_ip);
+        final EditText edtPort = (EditText) findViewById(R.id.edt_port);
         final EditText edtUsername = (EditText) findViewById(R.id.edt_username);
         final EditText edtPass = (EditText) findViewById(R.id.edt_password);
 
@@ -81,6 +83,10 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //test client server
+                Define.IP = edtIp.getText().toString();
+                Define.PORT = Integer.parseInt(edtPort.getText().toString());
+
                 String username = edtUsername.getText().toString();
                 String pass = edtPass.getText().toString();
 

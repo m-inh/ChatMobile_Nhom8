@@ -62,7 +62,7 @@ public class ContactAdapter extends BaseAdapter {
         TextView tvPhoneNumb = (TextView) convertView.findViewById(R.id.tv_phonenumb);
 
         tvName.setText(itemArr.get(position).getNameContact());
-        tvPhoneNumb.setText(itemArr.get(position).getPhoneNumber()[0]);
+//        tvPhoneNumb.setText(itemArr.get(position).getPhoneNumber()[0]);
 
         return convertView;
     }
