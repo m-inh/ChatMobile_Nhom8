@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/ChatMobile_Nhom8-master.iml" filepath="$PROJECT_DIR$/ChatMobile_Nhom8-master.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Avatar.iml" filepath="$PROJECT_DIR$/Avatar.iml" />
+>>>>>>> 86576a129ea040758dfdb36752b8b99cb512c86a
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
