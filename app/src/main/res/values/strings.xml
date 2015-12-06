@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Avatar</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="hint_name">Họ và tên</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_register">Đăng kí</string>
+    <string name="btn_link_to_register">Chưa có tài khoản? <u>Đăng kí ngay</u></string>
+    <string name="btn_link_to_login">Đã có tài khoản? <u>Đăng nhập ngay</u></string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">Đăng xuất</string>
+    <string name="name">Họ và tên</string>
+    <string name="hint_repassword">Nhập lại mật khẩu</string>
+    <string name="hint_username">Tên tài khoản</string>
+    <string name="name_contact">User Contact Name</string>
+    <string name="phone_number_contact">Phone number</string>
+    <string name="hint_message">Your message</string>
+    <string name="btn_send">Send</string>
+    <string name="friend_sms">Friend sms</string>
+    <string name="my_sms">My sms</string>
+    <string name="friend_name">Friend name</string>
+    <string name="recent_sms">Recent sms</string>
+    <string name="activity_login">Login</string>
+    <string name="uid">uid</string>
+    <string name="hint_ip">Server ip address</string>
+    <string name="hint_port">Server port</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_friendsms"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/friend_sms"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tv_mysms"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:text="@string/my_sms"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+</LinearLayout>
