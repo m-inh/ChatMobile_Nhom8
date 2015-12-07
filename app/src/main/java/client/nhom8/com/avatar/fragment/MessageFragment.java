@@ -38,7 +38,9 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemClick
         Log.i(TAG, "on create");
 
         mContext = getContext();
-        mAdapter = new MessageRecentAdapter(mContext);
+        if (mAdapter == null){
+            mAdapter = new MessageRecentAdapter(mContext);
+        }
     }
 
     @Override
@@ -88,6 +90,11 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemClick
     }
 
     public void updateListFriend(Vector<Friend> listFriend) {
+        if (listFriend == null){
+            Log.i(TAG, "listFriend is null");
+            return;
+        }
+
         mAdapter.updateListFriend(listFriend);
         mAdapter.notifyDataSetChanged();
     }

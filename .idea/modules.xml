@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Avatar.iml" filepath="$PROJECT_DIR$/Avatar.iml" />
       <module fileurl="file://$PROJECT_DIR$/ChatMobile_Nhom8.iml" filepath="$PROJECT_DIR$/ChatMobile_Nhom8.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
