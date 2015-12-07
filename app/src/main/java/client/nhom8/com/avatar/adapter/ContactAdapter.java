@@ -33,6 +33,7 @@ public class ContactAdapter extends BaseAdapter {
 //        itemArr.add(new ItemContact("Tran Van Tu", new String[]{"01234123123"}));
 //        itemArr.add(new ItemContact("Tran Van Tu", new String[]{"01234123123"}));
 //        itemArr.add(new ItemContact("Tran Van Tu", new String[]{"01234123123"}));
+//        itemArr.add(new ItemContact("Tran Van Tu", new String[]{"01234123123"}));
 
         ContactManager contactMgr = new ContactManager(mContext);
         itemArr = contactMgr.getItemContactArr();
