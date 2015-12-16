@@ -2,23 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
 
-    <TextView
-        android:id="@+id/tv_friendsms"
-        android:layout_width="300dp"
+    <LinearLayout
+        android:id="@+id/chat_company_reply_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_blue_dark"
-        android:text="@string/friend_sms"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:background="@drawable/balloon_incoming_normal"
+        android:gravity="left"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_mysms"
-        android:layout_width="300dp"
+        <TextView
+            android:id="@+id/tv_friendsms"
+            style="@style/chat_text_message_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:autoLink="web"
+            android:maxWidth="280dp"
+            android:paddingLeft="20dp"
+            android:text="Mểu đẹp trai" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:background="@drawable/balloon_outgoing_normal"
         android:gravity="right"
-        android:text="@string/my_sms"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_mysms"
+            style="@style/chat_text_message_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:autoLink="web"
+            android:maxWidth="280dp"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:text="Ừ tau biết :))" />
+    </LinearLayout>
 </LinearLayout>
