@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private SocialFragment socialFragment;
     private SettingFragment settingFragment;
 
-    // demo git
+    // demo git ahihi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
