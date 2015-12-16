@@ -39,6 +39,7 @@ public class LoginActivity extends Activity {
     private LoginSession session;
 
     private UserData userDB;
+    // demo 2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

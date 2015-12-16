@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private SocialFragment socialFragment;
     private SettingFragment settingFragment;
 
+    // demo git
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
