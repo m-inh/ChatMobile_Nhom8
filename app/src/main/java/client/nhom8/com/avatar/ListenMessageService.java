@@ -74,6 +74,7 @@ public class ListenMessageService extends Service implements Runnable {
             try {
                 objectOutputStream.flush();
                 BaseMessage baseMsg = (BaseMessage) objectInputStream.readObject();
+                Log.i(TAG, "Da nhan object");
                 if (baseMsg != null) {
                     Log.i(TAG, baseMsg.uidSender + " : " + baseMsg.mes);
 

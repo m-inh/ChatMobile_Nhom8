@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,7 @@ import modelsnet.BaseMessage;
 /**
  * Created by TooNies1810 on 11/28/15.
  */
-public class MessageActivity extends ActionBarActivity {
+public class MessageActivity extends AppCompatActivity {
     private static final String TAG = "MessageActivity";
     private EditText edtMessage;
     private Button btnSend;
@@ -42,7 +43,7 @@ public class MessageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-        setSupportActionBar(tool_bar);
+//        setSupportActionBar(tool_bar);
         Intent receiveIntent = getIntent();
         this.uidFriend = receiveIntent.getStringExtra("uidFriend");
         this.uid = receiveIntent.getStringExtra("uid");
