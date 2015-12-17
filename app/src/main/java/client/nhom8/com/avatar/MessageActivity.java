@@ -6,14 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,21 +25,21 @@ import modelsnet.BaseMessage;
 /**
  * Created by TooNies1810 on 11/28/15.
  */
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends Activity {
     private static final String TAG = "MessageActivity";
     private EditText edtMessage;
     private Button btnSend;
-    private ImageButton imgBtn_send;
+
     private String uid;
     private String uidFriend;
     private ListView lvMessage;
     private MessageAdapter mAdapter;
-    private Toolbar tool_bar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-//        setSupportActionBar(tool_bar);
+
         Intent receiveIntent = getIntent();
         this.uidFriend = receiveIntent.getStringExtra("uidFriend");
         this.uid = receiveIntent.getStringExtra("uid");
@@ -86,16 +82,16 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        tool_bar = (Toolbar) findViewById(R.id.tool_bar);
         TextView tvFriendName = (TextView) findViewById(R.id.tv_friendname);
         tvFriendName.setText("" + uidFriend);
         edtMessage = (EditText) findViewById(R.id.edt_message);
-        imgBtn_send = (ImageButton) findViewById(R.id.imgBtn_send);
+        btnSend = (Button) findViewById(R.id.btn_send);
         lvMessage = (ListView) findViewById(R.id.lv_message);
         mAdapter = new MessageAdapter(this);
+
         lvMessage.setAdapter(mAdapter);
 
-        imgBtn_send.setOnClickListener(new View.OnClickListener() {
+        btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String contentSms = edtMessage.getText().toString();

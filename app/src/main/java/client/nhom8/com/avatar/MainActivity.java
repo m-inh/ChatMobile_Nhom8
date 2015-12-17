@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
     private SocialFragment socialFragment;
     private SettingFragment settingFragment;
 
-    // demo git ahihi
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
         //test without dang nhap khong qua login
         Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
         startService(mIntent);
-        messageFragment.updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {

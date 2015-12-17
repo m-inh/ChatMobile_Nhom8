@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import client.nhom8.com.avatar.R;
+import client.nhom8.com.avatar.managers.UserManager;
 import client.nhom8.com.avatar.models.ItemRecentMessage;
 import models.Friend;
 
@@ -29,6 +30,7 @@ public class MessageRecentAdapter extends BaseAdapter{
         lf = LayoutInflater.from(mContext);
 
         initData();
+        updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
     }
 
     private void initData() {

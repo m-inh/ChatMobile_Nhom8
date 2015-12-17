@@ -16,12 +16,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Vector;
 
 import client.nhom8.com.avatar.database.UserData;
 import client.nhom8.com.avatar.define.Define;
 import client.nhom8.com.avatar.managers.ConnectionManager;
 import client.nhom8.com.avatar.managers.UserManager;
 import client.nhom8.com.avatar.session.LoginSession;
+import models.Friend;
 import models.UserInfo;
 import modelsnet.LoginInfo;
 import modelsnet.UserLogin;
@@ -37,7 +39,6 @@ public class LoginActivity extends Activity {
     private LoginSession session;
 
     private UserData userDB;
-    // demo 2 ahihi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,12 @@ public class LoginActivity extends Activity {
                                     Log.i(TAG, "LoginInfo success!");
                                     UserInfo userInfo = infor.getUserInfo();
                                     UserManager.getIntance().setUserInfo(userInfo);
+
+                                    Vector<Friend> listFriend = userInfo.getListFriend();
+
+                                    for (int i = 0; i < listFriend.size(); i++) {
+                                        Log.i(TAG, "Friend " + i + " i: " + listFriend.get(i).getUserID());
+                                    }
 //                                    ChatFrm chatFrm = new ChatFrm();
 //                                    this.setVisible(false);
 
