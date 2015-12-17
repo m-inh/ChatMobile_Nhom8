@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         //test without dang nhap khong qua login
         Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
         startService(mIntent);
+        messageFragment.updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
