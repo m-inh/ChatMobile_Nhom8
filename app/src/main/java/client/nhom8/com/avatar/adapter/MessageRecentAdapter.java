@@ -1,6 +1,7 @@
 package client.nhom8.com.avatar.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,10 +101,15 @@ public class MessageRecentAdapter extends BaseAdapter{
 
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
         TextView tvRecentSms = (TextView) convertView.findViewById(R.id.tv_recentsms);
-
+        TextView tvTimeSms = (TextView) convertView.findViewById(R.id.tv_timeSmsRecent);
         tvName.setText(itemArr.get(position).getNameUser());
         tvRecentSms.setText(itemArr.get(position).getRecentSms());
-
+        // Set fonts for text in MessageRecentAdapter, (in getView)
+        Typeface typeFace=Typeface.createFromAsset(mContext.getAssets(), "fonts/robotobold.ttf");
+        tvName.setTypeface(typeFace);
+        Typeface typeFace1=Typeface.createFromAsset(mContext.getAssets(),"fonts/robotothinlatic.ttf");
+        tvRecentSms.setTypeface(typeFace1);
+        tvTimeSms.setTypeface(typeFace1);
         return convertView;
     }
 }

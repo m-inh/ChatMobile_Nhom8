@@ -27,4 +27,6 @@
     <string name="uid">uid</string>
     <string name="hint_ip">Server ip address</string>
     <string name="hint_port">Server port</string>
+
+    <string name="mess_recent_title">1 TIN NHẮN ĐANG CHỜ</string>
 </resources>

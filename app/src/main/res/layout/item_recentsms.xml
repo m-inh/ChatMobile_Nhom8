@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:padding="5dp"
     android:layout_height="wrap_content">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/iv_avarfriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@mipmap/ic_launcher" />
-
+-->
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/iv_avarfriend"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:border="true"
+        app:border_color="#EEEEEE"
+        app:border_width="2dp"
+        app:shadow="true"
+        android:src="@mipmap/ic_launcher"/>
     <TextView
         android:layout_marginTop="4dp"
         android:id="@+id/tv_name"
@@ -31,5 +43,14 @@
         android:layout_alignLeft="@+id/tv_name"
         android:text="@string/recent_sms"
         android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_timeSmsRecent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="time"
+        android:textSize="15dp"
+        />
 
 </RelativeLayout>
