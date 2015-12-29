@@ -5,6 +5,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -116,6 +125,8 @@ public class MessageActivity extends ActionBarActivity {
                     // Gui tin nhan qua socket
                     sendMessage(uidFriend, contentSms);
 //                    Log.i(TAG, "count: " + mAdapter.getCount());
+                    edtMessage.setText("");
+
                 } else {
                     //Neu tin nhan khong co noi dung thi tu choi
                     Toast.makeText(MessageActivity.this, "Sms is empty!", Toast.LENGTH_SHORT).show();
@@ -126,7 +137,9 @@ public class MessageActivity extends ActionBarActivity {
         imgBtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MessageActivity.this, "AAAAAAAAAAA", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MessageActivity.this, "AAAAAAAAAAA", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MessageActivity.this, MainActivity.class);
+                startActivity(i);
             }
         });
     }

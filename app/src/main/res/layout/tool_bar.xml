@@ -17,12 +17,13 @@
             android:layout_gravity="center"
             android:background="@mipmap/ic_action_back1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imgBtn_friendImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
+            android:adjustViewBounds="true"
             android:background="@mipmap/ic_launcher" />
 
         <TextView
@@ -34,7 +35,6 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="aaaa" />
-
         <ImageButton
             android:id="@+id/imgBtn_setting"
             android:layout_width="wrap_content"

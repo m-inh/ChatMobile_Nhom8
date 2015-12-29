@@ -27,6 +27,6 @@
         android:autoLink="web"
         android:background="@drawable/balloon_outgoing_normal"
         android:maxWidth="280dp"
-        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="AAAAAAAAAAAAA" />
 </LinearLayout>
