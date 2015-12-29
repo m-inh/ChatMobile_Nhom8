@@ -4,38 +4,63 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Friend name"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_orange_dark"
-        android:id="@+id/tv_friendname" />
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
 
     <ListView
         android:id="@+id/lv_message"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:divider="@null"
-        android:layout_weight="1" />
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:divider="@null" />
 
     <TableRow
+        android:layout_marginBottom="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--<EditText-->
+        <!--android:id="@+id/edt_message"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:hint="@string/hint_message" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_send"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/btn_send" />-->
+        <ImageButton
+            android:id="@+id/imgBtn_emotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/ic_msg_panel_smiles" />
+
         <EditText
             android:id="@+id/edt_message"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:hint="@string/hint_message" />
+            android:hint="Enter mgs"
+            android:inputType="textCapSentences"
+            android:maxLines="4"
+            android:paddingLeft="4dp"
+            android:singleLine="false"
+            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="100dp"
+        <ImageButton
+            android:id="@+id/imgBtn_send"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_send" />
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/ic_chat_send" />
+
     </TableRow>
 </LinearLayout>

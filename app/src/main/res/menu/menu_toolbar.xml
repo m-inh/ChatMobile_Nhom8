@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_back1"
+        android:icon="@mipmap/ic_action_back1"
+        android:title="Back"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/imgBtn_friendImage1"
+        android:title="Avatar"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:title="Settings"
+        app:showAsAction="never">
+        <TextView
+            android:id="@+id/tv_friendname1"
+            android:text="aaaaaaaaaaaaaaaa">
+
+        </TextView>
+    </item>
+</menu>

@@ -2,23 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/tv_friendsms"
-        android:layout_width="300dp"
+        style="@style/chat_text_message_style"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_blue_dark"
-        android:text="@string/friend_sms"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_centerVertical="true"
+        android:autoLink="web"
+        android:background="@drawable/balloon_incoming_normal"
+        android:maxWidth="280dp"
+        android:paddingLeft="20dp"
+        android:text="AAAAAAAAAAAAA" />
 
     <TextView
         android:id="@+id/tv_mysms"
-        android:layout_width="300dp"
+        style="@style/chat_text_message_style"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_gravity="right"
-        android:gravity="right"
-        android:text="@string/my_sms"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:autoLink="web"
+        android:background="@drawable/balloon_outgoing_normal"
+        android:maxWidth="280dp"
+        android:paddingLeft="20dp"
+        android:text="AAAAAAAAAAAAA" />
 </LinearLayout>
