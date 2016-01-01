@@ -2,15 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_avarcontact"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher" />-->
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/iv_avarcontact"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:adjustViewBounds="true"
+        app:border="true"
+        app:border_color="@color/green_300"
+        app:border_width="1dp"
+        app:shadow="true"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/tv_name"
