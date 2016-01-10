@@ -109,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
 
         //kiem tra thong tin dang nhap cua phien truoc
         //neu thong tin sai se quay lai man hinh dang nhap
-//        checkLogin(user.get("username"), user.get("password"));
+        checkLogin(user.get("username"), user.get("password"));
 
         //test without dang nhap khong qua login
-        Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
-        startService(mIntent);
+//        Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
+//        startService(mIntent);
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         unregisterReceiver(receiver);
+        Intent mIntent = new Intent(MainActivity.this, ListenMessageService.class);
+        stopService(mIntent);
         super.onDestroy();
     }
 

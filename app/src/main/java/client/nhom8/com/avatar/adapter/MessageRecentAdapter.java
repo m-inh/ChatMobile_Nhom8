@@ -31,7 +31,7 @@ public class MessageRecentAdapter extends BaseAdapter{
         lf = LayoutInflater.from(mContext);
 
         initData();
-        updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
+//        updateListFriend(UserManager.getIntance().getUserInfo().getListFriend());
     }
 
     private void initData() {

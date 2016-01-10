@@ -7,7 +7,7 @@ package client.nhom8.com.avatar.define;
 public class Define {
 //    public static String IP = "192.168.1.101";
 //    public static String IP = "10.61.70.45";
-    public static String IP = "192.168.1.101";
+    public static String IP = "192.168.1.109";
     public static int PORT = 5542;
 
 }
