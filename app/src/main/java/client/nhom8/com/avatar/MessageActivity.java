@@ -138,8 +138,10 @@ public class MessageActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(MessageActivity.this, "AAAAAAAAAAA", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MessageActivity.this, MainActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(MessageActivity.this, MainActivity.class);
+//                startActivity(i);
+
+                onBackPressed();
             }
         });
     }
