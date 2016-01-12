@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         titleFragmentArr.add("Contact");
         titleFragmentArr.add("Message");
         titleFragmentArr.add("Social");
-        titleFragmentArr.add("Settings");
+        titleFragmentArr.add("Setting");
         mPagerAdapter = new MyViewpagerAdapter(getSupportFragmentManager(), fragmentArr, titleFragmentArr);
         mViewPager = (ViewPager) findViewById(R.id.viewpager_container);
         mViewPager.setAdapter(mPagerAdapter);

@@ -12,6 +12,9 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/bg_main"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabMode="scrollable"
         android:elevation="4dp"/>
 
     <android.support.v4.view.ViewPager
