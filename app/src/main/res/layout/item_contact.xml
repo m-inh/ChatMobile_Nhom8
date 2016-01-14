@@ -5,6 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
     <!-- new -->
+    <LinearLayout
+        android:id="@+id/section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"></LinearLayout>
     <!--<ImageView
         android:id="@+id/iv_avarcontact"
         android:layout_width="45dp"

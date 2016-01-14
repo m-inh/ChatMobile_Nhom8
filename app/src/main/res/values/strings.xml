@@ -2,7 +2,7 @@
     <string name="app_name">Avatar</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
+    <!-- new -->
     <string name="hint_email">Email</string>
     <string name="hint_password">Mật khẩu</string>
     <string name="hint_name">Họ và tên</string>
