@@ -22,6 +22,7 @@
         app:border="true"
         app:shadow="true"
         android:src="@mipmap/ic_launcher"/>
+    
     <TextView
         android:layout_marginTop="4dp"
         android:id="@+id/tv_name"

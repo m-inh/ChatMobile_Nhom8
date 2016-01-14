@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
-    <!-- new color-->
+    <!-- new -->
     <!--<ImageView
         android:id="@+id/iv_avarcontact"
         android:layout_width="45dp"
