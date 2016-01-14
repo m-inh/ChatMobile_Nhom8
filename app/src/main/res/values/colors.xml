@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    //Three color main
+    //Three color main new
     <color name="blue500">#2196F3</color>
     <color name="blue200">#90CAF9</color>
     <color name="blue800">#1565C0</color>
-    //One color accent
+    //One color accent new
     <color name="bluea200">#448AFF</color>
 
     <color name="black_new">#212121</color>
