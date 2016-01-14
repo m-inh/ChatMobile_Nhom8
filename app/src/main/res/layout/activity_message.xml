@@ -15,7 +15,7 @@
         android:layout_marginLeft="5dp"
         android:layout_weight="1"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll"
+
         android:divider="@null" />
 
     <TableRow

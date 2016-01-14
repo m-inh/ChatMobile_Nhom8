@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#69e4ff"
+    android:background="@color/bluea200"
     android:elevation="4dp">
 
     <LinearLayout
@@ -13,8 +13,8 @@
 
         <ImageButton
             android:id="@+id/imgBtn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
             android:background="@mipmap/ic_action_back1" />
 
@@ -34,8 +34,6 @@
             android:layout_marginLeft="5dp"
             android:adjustViewBounds="true"
             app:border="true"
-            app:border_color="@color/green_300"
-            app:border_width="1dp"
             app:shadow="true"
             android:src="@mipmap/ic_launcher"/>
 
@@ -47,6 +45,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="left"
+            android:textColor="@color/white"
             android:text="aaaa" />
         <ImageButton
             android:id="@+id/imgBtn_setting"

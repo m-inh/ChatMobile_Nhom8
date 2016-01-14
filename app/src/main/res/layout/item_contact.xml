@@ -20,8 +20,6 @@
         android:layout_marginLeft="5dp"
         android:adjustViewBounds="true"
         app:border="true"
-        app:border_color="@color/green_300"
-        app:border_width="1dp"
         app:shadow="true"
         android:src="@mipmap/ic_launcher"/>
 
